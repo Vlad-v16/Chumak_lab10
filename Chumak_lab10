@@ -1,0 +1,31 @@
+#include <iostream>
+#include <regex>
+#include <windows.h>
+
+using namespace std;
+
+bool isValidFileName(const string& fileName)
+{
+    regex pattern("^[a-zA-Z0-9_-]+\\.txt$");
+    return regex_match(fileName, pattern);
+}
+
+int main() 
+{
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+
+    string fileName;
+
+    cout << "Введіть ім'я файлу: ";
+    cin >> fileName;
+
+    if (isValidFileName(fileName)) 
+    {
+        cout << "Ім'я файлу правильне!" << endl;
+    }
+    else {
+        cout << "Ім'я файлу неправильне!" << endl;
+    }
+    return 0;
+}
